@@ -2,7 +2,7 @@ class Api::V1::ChirpsController < ApplicationController
   
     # GET /chirps
     def index
-      @chirps = Chirp.all
+      @chirps = Chirp.chirps_all_latest
       
       render json: @chirps
     end
