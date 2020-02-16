@@ -31,5 +31,9 @@ module ChirpsBackend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Configure Active Job to work with Sidekiq
+    # Using adapter sidekiq for queuing backend
+    config.active_job.queue_adapter = :sidekiq
   end
 end
