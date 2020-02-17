@@ -16,7 +16,6 @@ class Api::V1::ChirpsController < ApplicationController
         render json: @chirp, status: :created
       else
         render json: @chirp.errors, status: :not_acceptable
-
       end
     end
 

@@ -3,6 +3,6 @@ class User < ApplicationRecord
   validates :username, :uniqueness => true
 
   has_many :upvotes
-  has_many :voted_for, through: :upvotes, source: :chirp
+  has_many :upvoted_for, through: :upvotes, source: :chirp
 
 end
