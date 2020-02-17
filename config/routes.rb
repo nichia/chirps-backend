@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do
       resources :chirps, only: [:index, :create]
-      resources :users, only: [:index] do
+      resources :users, only: [:index, :show] do
         post :add_to_upvotes, on: :member 
         post :remove_from_upvotes, on: :member
       end

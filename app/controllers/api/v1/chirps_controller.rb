@@ -12,7 +12,7 @@ class Api::V1::ChirpsController < ApplicationController
       @chirp = Chirp.new(chirp_params)
 
       if @chirp.save
-        ChirpNotifierJob.perform_later(@chirp.id)
+        # ChirpNotifierJob.perform_later(@chirp.id)
         render json: @chirp, status: :created
       else
         render json: @chirp.errors, status: :not_acceptable
