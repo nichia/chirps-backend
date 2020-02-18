@@ -2,7 +2,11 @@ class Api::V1::ChirpsController < ApplicationController
   
     # GET /chirps
     def index
-      @chirps = Chirp.chirps_all_latest
+      # Order list of chirps by recency follow by number of upvotes
+      @chirps = Chirp.chirps_by_latest_upvotes
+
+      # Order list of chirps by newest chirp at the top
+      # @chirps = Chirp.chirps_all_latest
       
       render json: @chirps
     end
