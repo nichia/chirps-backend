@@ -4,7 +4,7 @@ class  Api::V1::UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-    render json: @users
+    render json: @users, status: :ok
   end
 
   # GET /users/1
@@ -20,7 +20,7 @@ class  Api::V1::UsersController < ApplicationController
     @chirp = Chirp.find(params[:chirp][:id])
     if @user && @chirp
       @user.upvoted_for << @chirp unless @user.upvoted_for.include?(@chirp)
-      render json: @user.upvoted_for, status: :created
+      render json: @user, status: :created
     else
       render json: {error: 'failed to add upvotes'}, status: :not_acceptable
     end
@@ -29,7 +29,7 @@ class  Api::V1::UsersController < ApplicationController
   def remove_from_upvotes
     @chirp = Chirp.find(params[:chirp][:id])
     @user.upvoted_for.delete(@chirp)
-    render json: @user.upvoted_for, status: :ok
+    render json: @user, status: :ok
   end
 
   private
