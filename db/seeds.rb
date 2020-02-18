@@ -9,9 +9,9 @@
 chirp = Chirp.create(text: 'this is the first chirp')
 chirp_2 = Chirp.create(text: 'this is the second chirp')
 
-user1 = User.create(username: "u1", firstname: "Open", lastname: "User")
+user1 = User.create(username: "u1", firstname: "Bellbird", lastname: "Chirp")
 user2 = User.create(username: "u2", firstname: "Dan", lastname: "Abramov")
-user3 = User.create(username: "u3", firstname: "David", lastname: "Hansson")
+user3 = User.create(username: "u3", firstname: "David Heinemeier", lastname: "Hansson")
 user4 = User.create(username: "u4", firstname: "Mark", lastname: "Zuckerberg")
 
 user1.upvoted_for << chirp
