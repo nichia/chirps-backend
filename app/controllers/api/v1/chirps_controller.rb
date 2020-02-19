@@ -2,9 +2,13 @@ class Api::V1::ChirpsController < ApplicationController
   
     # GET /chirps
     def index
-      # Order list of chirps by recency follow by number of upvotes
-      @chirps = Chirp.chirps_by_latest_upvotes
-
+      if params[:sort_by] == "t"
+        # Recent/Top chirps: Order list of chirps by number of upvotes
+        @chirps = Chirp.chirps_by_upvotes
+      else
+        # Recent/Top chirps: Order list of chirps by recency follow by number of upvotes
+        @chirps = Chirp.chirps_by_latest_upvotes
+      end
       # Order list of chirps by newest chirp at the top
       # @chirps = Chirp.chirps_all_latest
       

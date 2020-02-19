@@ -7,6 +7,13 @@ class Chirp < ApplicationRecord
   # Order list of chirps by newest chirp at the top
   scope :chirps_all_latest, -> { order("id DESC") }
 
+  # Order list of chirps by most upvotes chirp at the top
+  def self.chirps_by_upvotes
+    Chirp.left_joins(:upvotes)
+      .group('chirps.id')
+      .order('count(upvotes.id) DESC')
+  end
+
   # Order list of chirps by recency follow by number of upvotes
   def self.chirps_by_latest_upvotes
     Chirp.left_joins(:upvotes)
